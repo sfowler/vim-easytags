@@ -161,7 +161,7 @@ function! s:prep_cmdline(cfile, tagsfile, firstrun, arguments, context) " {{{3
   let cmdline = [program, '--fields=+l', '--c-kinds=+p', '--c++-kinds=+p']
   let excludefile = a:tagsfile . '.excluded'
   if filereadable(excludefile)
-    call add(cmdline, xolox#misc#escape#shell('--exclude=@' . excludefile))
+    call add(cmdline, '--exclude=@' . xolox#misc#escape#shell(excludefile))
   endif
   if a:firstrun
     call add(cmdline, xolox#misc#escape#shell('-f' . a:tagsfile))
