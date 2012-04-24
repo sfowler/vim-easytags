@@ -159,7 +159,7 @@ endfunction
 function! s:prep_cmdline(cfile, tagsfile, firstrun, arguments, context) " {{{3
   let program = xolox#misc#option#get('easytags_cmd')
   let cmdline = [program, '--fields=+l', '--c-kinds=+p', '--c++-kinds=+p']
-  let excludefile = a:tagsfile . '.excluded'
+  let excludefile = a:tagsfile . '.exclude'
   if filereadable(excludefile)
     call add(cmdline, '--exclude=@' . xolox#misc#escape#shell(excludefile))
   endif
